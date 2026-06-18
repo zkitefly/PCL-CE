@@ -2248,11 +2248,8 @@ public static class ModLaunch
             ModBase.Log("[Launch] LegacyFix 已被禁用");
             return false;
         }
-        if (mc.releaseTime < new DateTime(2013, 6, 25) && mc.releaseTime.Year > 2000)
-        {
-            return true;
-        }
-        return false;
+        return mc.releaseTime < new DateTime(2013, 6, 25) && mc.releaseTime.Year > 2000 ||
+               mc.releaseTime.Year <= 2000 && mc.Info.Drop < 60;
     }
 
     /// <summary>
